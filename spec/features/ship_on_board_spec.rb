@@ -9,7 +9,8 @@ feature 'ship positioned on board' do
   end
 
   scenario 'board to check ship position' do
-    board.place ship "E4"
-    expect{board.check_grid ship}.to eq "taken" #to_be taken?
+    ship = Ship.new "E4"
+    board.place ship
+    expect(board.check_grid ship).to eq "taken" #to_be taken?
   end
 end
