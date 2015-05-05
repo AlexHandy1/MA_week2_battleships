@@ -1,0 +1,55 @@
+key rules
+  - aim is to layout your 5 ships (aircraft carrier, battleship, submarine, destroyer, patrol boat) in such a way that you hit all your opponents before they hit yours
+  - each player has 2 10*10 letter/number grids >> one grid to register their own shots and another to register opponents
+  - on alternative turns each player announces one target square and opponent responds as to whether it has hit or not
+
+practice use cases (break-down to be even simpler e.g. 1) I want to layout one ship on the board 2) then I want to layout multiple ships)
+- As a player, to set-up the game, I want to be able to layout my 5 ships
+- As a game, to ensure fairness, I want to make sure the 5 ships cannot be moved once set-up
+- As a player, to find my opponents ships, I want to be able to take a shot
+- As a player, to manage my own ships, I want to be able to register an opponent's shot
+- As a game, to find a winner, I want to track both players remaining squares
+
+practice objects, attributes, actions (map into CRC)
+ - Ship
+  >> attributes - grid position, hit status
+  >> methods - attr_accessors for its attributes so can check status and position
+  >> interactions - board
+ - Other Ships
+ - Board
+  >> attributes - number of ships, number of working ships, position of ships, number of available grid squares, number of taken grid squares
+  >> methods - beyond checking certain attributes - what needs to DO?
+  >> interactions - ship
+ - Game Engine
+ - Player 1
+  >> attributes - limited (perhaps wins or losses)
+  >> methods - place a ship, take a shot, check hits, check own ship status and position
+  >> interactions - Board and Ship
+ - Player 2
+ - Interface
+
+practice MVP
+- player can place a ship on a board and check its location
+- (seems to be suggesting in tutorial that you would place actions on board e.g. board.place ship for the MVP)
+>> Feature test
+  >> A ship can be placed on the board >> has it been placed and does the ship have a position
+  >> Board can receive a missed hit
+  >> Board can receive a hit on a ship >> ship status as well hit methods
+
+given use cases
+- player place a ship on board location
+- player place a range of ship sizes on board location
+- player can choose direction ship is facing
+- player's ships are constrained on the board
+- player's ships can not overlap
+- player fire at opponent's board
+- player know if has won or lost
+- player have an overview of hits and misses so far
+- player can play against an opponent
+
+
+ emerging qu's
+ - how model the 10*10 grid? (nested array?)
+ - how deal with multiple boards?
+ - boat has to be perpendicular? (e.g. straight not diagonal)
+ - how do you inject an object into a certain array position? >> practice inject
