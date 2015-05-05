@@ -1,11 +1,11 @@
 class Ship
-  attr_accessor :position, :size
+  attr_accessor :position, :size, :hits
 
   def initialize position = nil
     @position = position
     @size = 1
     @floating = true
-    @hit = 0
+    @hits = 0
   end
 
   def floating?
@@ -21,6 +21,6 @@ class Ship
   end
 
   def is_hit
-    @hit += 1
+    @hits += 1
   end
 end

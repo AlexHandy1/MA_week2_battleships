@@ -9,13 +9,13 @@ feature 'ship positioned on board' do
     expect(board.ship_objects.count).to eq 1
   end
 
-  scenario 'board to raise message hit if ship has been hit' do
+  xscenario 'board to raise message hit if ship has been hit' do
     ship = Ship.new "E4"
     board.place ship
     expect(board.hit_checker "E4").to eq "OUCH"
   end
 
-  scenario 'board to raise message missed when no ship in that position' do
+  xscenario 'board to raise message missed when no ship in that position' do
     ship = Ship.new "E4"
     board.place ship
     expect(board.hit_checker "E5").to eq "MISSED"
