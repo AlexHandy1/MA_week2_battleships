@@ -1,7 +1,7 @@
 require_relative 'Ship'
 
 class Board
-  attr_accessor :ships
+  attr_accessor :ship_objects
   attr_reader :grid
   attr_reader :ship_coords
 
@@ -19,19 +19,26 @@ class Board
                   ["A9","B9", "C9", "D9", "E9", "F9", "G9", "H9", "I9", "J9"]]
     @ship_coords = []
     @guesses = []
-
+    @hits = 0
   end
 
   def place ship
     @ship_objects << ship
-    @ship_coords << get_grid(ship)
+    @ship_coords << ship.position
    # take grid coordinate from get_grid and assign it
    #create an array to store ship coordiantes to call on late when playing
   end
 
+  def hit_checker position
+    #still broken
+      return "MISSED" unless @ship_coords.include?(position)
+      @hits += 1
+      return "OUCH"
+  end
+
+  #not currently being referenced
   def get_grid ship
     grid.each_index{|i| j = grid[i].index (ship.position); return [i], [j] if j}
-
   end
 
 

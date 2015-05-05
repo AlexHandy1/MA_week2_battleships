@@ -12,7 +12,7 @@ practice use cases (break-down to be even simpler e.g. 1) I want to layout one s
 
 practice objects, attributes, actions (map into CRC)
  - Ship
-  >> attributes - grid position, hit status
+  >> attributes - grid position, hits, direction, size, sunk?
   >> methods - attr_accessors for its attributes so can check status and position
   >> interactions - board
  - Other Ships
